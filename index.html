@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aurelian Institute — UK's premier online academy for remote-work careers. 100+ courses in tech, finance, design and more.">
+<title>Aurelian Institute — UK Academy for Remote-Work Careers</title>
+
+<style>
+:root {
+  --bg: #06080f;
+  --bg-2: #0b0f1c;
+  --panel: rgba(255, 255, 255, .06);
+  --panel-strong: rgba(255, 255, 255, .1);
+  --line: rgba(255, 255, 255, .12);
+  --line-soft: rgba(255, 255, 255, .07);
+  --text: #f7faff;
+  --muted: #8d97ac;
+  --soft: #b9c2d4;
+  --gold: #e7c583;
+  --gold-dark: #b8934a;
+  --gold-soft: #f3ddaf;
+  --blue: #5d8dff;
+  --blue-dark: #3055c9;
+  --cyan: #6ad6ff;
+  --green: #5bd6a0;
+  --purple: #a98cff;
+  --rose: #ff8fa8;
+  --shadow: 0 30px 90px rgba(0, 0, 0, .45);
+  --shadow-soft: 0 14px 40px rgba(0, 0, 0, .28);
+  --radius: 22px;
+  --radius-lg: 30px;
+  --max: 1200px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% -5%, rgba(93, 141, 255, .22), transparent 32rem),
+    radial-gradient(circle at 88% 4%, rgba(231, 197, 131, .13), transparent 26rem),
+    radial-gradient(circle at 50% 110%, rgba(169, 140, 255, .13), transparent 30rem),
+    linear-gradient(150deg, #06080f, #0b1020 46%, #07090f);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .22;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 88%);
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button, input, textarea, select { font: inherit; color: inherit; }
+button { border: 0; background: none; cursor: pointer; }
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(231, 197, 131, .55);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.wrap {
+  width: min(var(--max), calc(100% - 36px));
+  margin: 0 auto;
+}
+
+/* ---------- Glass ---------- */
+.glass {
+  background: linear-gradient(140deg, rgba(255,255,255,.085), rgba(255,255,255,.03));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+}
+.glass-soft {
+  background: linear-gradient(140deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+  border: 1px solid var(--line-soft);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: 14px 0;
+  background: rgba(6, 8, 15, .72);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3ddaf 0%, #b8934a 55%, #6d541f 100%);
+  box-shadow: 0 12px 28px rgba(184, 147, 74, .32), inset 0 1px 1px rgba(255,255,255,.55);
+  color: #1b1408;
+  font-weight: 950;
+  font-size: 17px;
+  letter-spacing: -3px;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.5), transparent 70%);
+  transform: translateX(-70%) rotate(12deg);
+  transition: transform .8s ease;
+}
+
+.brand-mark span { position: relative; z-index: 1; }
+.brand-mark span:last-child { transform: translateY(4px); }
+
+.brand:hover .brand-mark {
+  transform: translateY(-3px) rotate(-4deg) scale(1.05);
+  box-shadow: 0 16px 34px rgba(184, 147, 74, .5);
+}
+.brand:hover .brand-mark::after { transform: translateX(70%) rotate(12deg); }
+
+.brand-text strong {
+  display: block;
+  font-size: .95rem;
+  font-weight: 950;
+  letter-spacing: .16em;
+}
+.brand-text small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-links a {
+  padding: 9px 13px;
+  border-radius: 11px;
+  color: var(--soft);
+  font-size: .82rem;
+  font-weight: 800;
+  transition: color .22s ease, background .22s ease;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: #17110a;
+  font-size: .8rem;
+  font-weight: 950;
+  background: linear-gradient(135deg, #f3ddaf, #c79b4d);
+  box-shadow: 0 12px 26px rgba(184, 147, 74, .32);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.header-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(184, 147, 74, .45); }
+
+.menu-btn {
+  display: none;
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: rgba(255,255,255,.05);
+  font-size: 1.2rem;
+}
+
+/* Mobile nav */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0 4px;
+  margin-top: 10px;
+  border-top: 1px solid var(--line-soft);
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: var(--soft);
+  font-size: .9rem;
+  font-weight: 800;
+}
+.mobile-nav a:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: clamp(34px, 6vw, 72px) 0 clamp(20px, 4vw, 44px);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: clamp(24px, 5vw, 56px);
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(231, 197, 131, .28);
+  border-radius: 999px;
+  background: rgba(231, 197, 131, .07);
+  color: var(--gold-soft);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+  animation: pulse 2s infinite;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 6.4vw, 4.6rem);
+  font-weight: 950;
+  letter-spacing: -.06em;
+  line-height: 1.0;
+  margin-bottom: 22px;
+}
+.hero h1 .gold {
+  color: transparent;
+  background: linear-gradient(100deg, #fff, #f3ddaf 45%, #c79b4d);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero p.lead {
+  max-width: 580px;
+  color: var(--soft);
+  font-size: clamp(.98rem, 1.9vw, 1.12rem);
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 14px;
+  font-size: .86rem;
+  font-weight: 950;
+  letter-spacing: .01em;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(.97); }
+
+.btn-gold {
+  color: #17110a;
+  background: linear-gradient(135deg, #f3ddaf, #c79b4d);
+  box-shadow: 0 14px 30px rgba(184, 147, 74, .35);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(184, 147, 74, .48); filter: brightness(1.05); }
+
+.btn-blue {
+  color: #fff;
+  background: linear-gradient(135deg, #6f9fff, #3869e5);
+  box-shadow: 0 14px 30px rgba(55, 105, 226, .32);
+}
+.btn-blue:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 20px 40px rgba(55, 105, 226, .45); }
+
+.btn-ghost {
+  color: var(--text);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.05);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 560px;
+}
+.stat {
+  padding: 16px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255,255,255,.035);
+}
+.stat strong {
+  display: block;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 950;
+  letter-spacing: -.03em;
+  color: var(--gold-soft);
+}
+.stat span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Hero visuals */
+.hero-visual {
+  position: relative;
+  min-height: 460px;
+}
+
+.student-stack {
+  position: relative;
+  height: 100%;
+  min-height: 460px;
+}
+
+.student-card {
+  position: absolute;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: var(--shadow);
+  background: #0d1120;
+  transition: transform .5s ease, box-shadow .5s ease;
+}
+.student-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.student-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(6,8,15,.75));
+  pointer-events: none;
+}
+.student-card .label {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 2;
+  color: #fff;
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.student-card .label small {
+  display: block;
+  margin-top: 3px;
+  color: var(--gold-soft);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+.sc-1 { top: 0; left: 6%; width: 62%; height: 62%; animation: floatA 8s ease-in-out infinite; z-index: 2; }
+.sc-2 { top: 12%; right: 0; width: 44%; height: 44%; animation: floatB 9s ease-in-out infinite; z-index: 3; }
+.sc-3 { bottom: 2%; left: 14%; width: 52%; height: 44%; animation: floatA 10s ease-in-out infinite reverse; z-index: 1; }
+
+.hero-badge {
+  position: absolute;
+  top: 6%;
+  right: 6%;
+  z-index: 5;
+  padding: 12px 16px;
+  border-radius: 16px;
+  text-align: center;
+  animation: floatB 7s ease-in-out infinite;
+}
+.hero-badge strong {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 950;
+  color: var(--gold-soft);
+  letter-spacing: -.02em;
+}
+.hero-badge span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Section ---------- */
+section { padding: clamp(44px, 7vw, 88px) 0; }
+
+.section-head {
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+.section-head .kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--gold);
+  font-size: .72rem;
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.section-head h2 {
+  font-size: clamp(1.6rem, 4vw, 2.75rem);
+  font-weight: 950;
+  letter-spacing: -.05em;
+  line-height: 1.06;
+  margin-bottom: 14px;
+}
+.section-head p {
+  color: var(--soft);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ---------- Trust strip ---------- */
+.trust {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-top: -12px;
+}
+.trust-item {
+  text-align: center;
+  padding: 10px 6px;
+}
+.trust-item strong {
+  display: block;
+  font-size: .95rem;
+  font-weight: 950;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+.trust-item span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Course controls ---------- */
+.controls {
+  padding: 18px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.search-input {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px 0 46px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(255,255,255,.055);
+  color: var(--text);
+  transition: border-color .22s ease, box-shadow .22s ease, background .22s ease;
+  font-size: .9rem;
+}
+.search-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.search-input::placeholder { color: #687388; }
+.search-input:focus {
+  border-color: rgba(231, 197, 131, .55);
+  background: rgba(255,255,255,.09);
+  box-shadow: 0 0 0 4px rgba(231, 197, 131, .1);
+}
+.search-wrap { position: relative; }
+.search-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  width: 13px; height: 13px;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  transform: translateY(-58%);
+  pointer-events: none;
+}
+.search-wrap::after {
+  content: "";
+  position: absolute;
+  left: 29px;
+  top: calc(50% + 6px);
+  width: 7px; height: 2px;
+  border-radius: 2px;
+  background: var(--muted);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.count-pill {
+  display: grid;
+  place-items: center;
+  min-width: 110px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--soft);
+  background: rgba(255,255,255,.04);
+  font-size: .78rem;
+  font-weight: 900;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.filter-label {
+  margin-right: 4px;
+  color: var(--muted);
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chip {
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--soft);
+  background: rgba(255,255,255,.04);
+  font-size: .76rem;
+  font-weight: 850;
+  transition: all .22s ease;
+}
+.chip:hover { color: #fff; background: rgba(255,255,255,.09); }
+.chip.active {
+  color: #17110a;
+  border-color: transparent;
+  background: linear-gradient(135deg, #f3ddaf, #c79b4d);
+  box-shadow: 0 8px 20px rgba(184, 147, 74, .32);
+}
+
+/* ---------- Course grid ---------- */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  animation: cardIn .5s both;
+  min-height: 260px;
+}
+.course-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(231, 197, 131, .4);
+  box-shadow: 0 24px 50px rgba(0,0,0,.4), 0 0 30px rgba(231, 197, 131, .1);
+}
+.course-card .ribbon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: .62rem;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.ribbon.free {
+  color: #062616;
+  background: linear-gradient(135deg, #a4f4c8, #58d69e);
+  box-shadow: 0 8px 18px rgba(88, 214, 158, .35);
+}
+.ribbon.paid {
+  color: #17110a;
+  background: linear-gradient(135deg, #f3ddaf, #c79b4d);
+}
+
+.course-emoji {
+  display: grid;
+  place-items: center;
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--line-soft);
+}
+
+.course-cat {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: .66rem;
+  font-weight: 950;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.course-title {
+  font-size: 1.05rem;
+  font-weight: 950;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  margin-bottom: 9px;
+}
+.course-desc {
+  color: var(--muted);
+  font-size: .83rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+.course-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+.course-meta .duration {
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.course-price {
+  font-size: .92rem;
+  font-weight: 950;
+  color: var(--gold-soft);
+  letter-spacing: -.01em;
+}
+.course-price.free-price { color: #7fe6b3; }
+
+.course-card .enrol {
+  margin-top: 12px;
+  width: 100%;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 11px;
+  font-size: .78rem;
+  font-weight: 950;
+  color: #17110a;
+  background: linear-gradient(135deg, #f3ddaf, #c79b4d);
+  transition: filter .2s ease, transform .2s ease;
+}
+.course-card .enrol:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.course-card .enrol.free-enrol {
+  color: #fff;
+  background: linear-gradient(135deg, #6f9fff, #3869e5);
+  box-shadow: 0 10px 22px rgba(55, 105, 226, .28);
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 56px 24px;
+  border: 1px dashed rgba(255,255,255,.16);
+  border-radius: var(--radius);
+  color: var(--muted);
+  text-align: center;
+  font-size: .9rem;
+}
+
+.load-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* ---------- Why / Features ---------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.feature {
+  padding: 26px 22px;
+  border-radius: var(--radius);
+  transition: transform .3s ease, border-color .3s ease;
+}
+.feature:hover { transform: translateY(-5px); border-color: rgba(231,197,131,.28); }
+.feature-icon {
+  display: grid;
+  place-items: center;
+  width: 50px; height: 50px;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  font-size: 1.35rem;
+  background: linear-gradient(135deg, rgba(231,197,131,.22), rgba(231,197,131,.05));
+  border: 1px solid rgba(231,197,131,.24);
+}
+.feature h3 {
+  font-size: 1.05rem;
+  font-weight: 950;
+  letter-spacing: -.02em;
+  margin-bottom: 9px;
+}
+.feature p { color: var(--muted); font-size: .86rem; line-height: 1.65; }
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.testimonial {
+  padding: 24px 22px;
+  border-radius: var(--radius);
+  position: relative;
+}
+.testimonial::before {
+  content: "\201C";
+  position: absolute;
+  top: 6px; right: 20px;
+  font-size: 4rem;
+  color: rgba(231,197,131,.16);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+.testimonial p {
+  color: var(--soft);
+  font-size: .9rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3ddaf, #b8934a);
+  display: grid;
+  place-items: center;
+  color: #17110a;
+  font-weight: 950;
+  font-size: .95rem;
+  flex-shrink: 0;
+}
+.testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.testimonial-author strong {
+  display: block;
+  font-size: .86rem;
+  font-weight: 950;
+}
+.testimonial-author span {
+  display: block;
+  color: var(--muted);
+  font-size: .72rem;
+  margin-top: 2px;
+}
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(34px, 6vw, 60px);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.cta-band::before {
+  content: "";
+  position: absolute;
+  top: -120px; left: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(231,197,131,.15);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.cta-band::after {
+  content: "";
+  position: absolute;
+  bottom: -120px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(93,141,255,.14);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.cta-band h2 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 950;
+  letter-spacing: -.05em;
+  margin-bottom: 14px;
+}
+.cta-band p {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto 26px;
+  color: var(--soft);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.cta-band .btn { position: relative; z-index: 1; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 46px 0 32px;
+  margin-top: 40px;
+  border-top: 1px solid var(--line-soft);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+.footer-brand p {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.7;
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-size: .72rem;
+  font-weight: 950;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.footer-col a {
+  display: block;
+  padding: 5px 0;
+  color: var(--muted);
+  font-size: .83rem;
+  transition: color .2s ease;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: .76rem;
+}
+
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(2, 5, 12, .78);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.modal-backdrop.visible { display: flex; animation: fadeIn .25s ease both; }
+
+.modal {
+  width: min(620px, 100%);
+  max-height: min(90vh, 800px);
+  overflow-y: auto;
+  padding: 28px;
+  border-radius: 26px;
+  animation: modalIn .35s cubic-bezier(.2,.8,.2,1) both;
+  -webkit-overflow-scrolling: touch;
+}
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+.modal-kicker {
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.modal h2 {
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  letter-spacing: -.045em;
+  font-weight: 950;
+  line-height: 1.15;
+}
+.close-btn {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px; height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--soft);
+  background: rgba(255,255,255,.06);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform .2s ease, background .2s ease;
+}
+.close-btn:hover { color: #fff; background: rgba(255,255,255,.12); transform: rotate(90deg); }
+
+.modal-body p {
+  color: var(--soft);
+  font-size: .9rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: grid;
+  gap: 9px;
+}
+.detail-list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--soft);
+  font-size: .86rem;
+  line-height: 1.6;
+}
+.detail-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 7px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f3ddaf, #c79b4d);
+  box-shadow: 0 0 10px rgba(231,197,131,.4);
+}
+
+.modal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.modal-meta-grid .cell {
+  padding: 12px 10px;
+  border-radius: 13px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255,255,255,.03);
+  text-align: center;
+}
+.modal-meta-grid .cell strong {
+  display: block;
+  font-size: .92rem;
+  font-weight: 950;
+  color: var(--gold-soft);
+}
+.modal-meta-grid .cell span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* Enrol form */
+.form-group { margin-bottom: 14px; }
+.form-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--soft);
+  font-size: .78rem;
+  font-weight: 900;
+}
+.form-control {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 13px;
+  outline: none;
+  color: var(--text);
+  background: rgba(255,255,255,.055);
+  transition: border-color .22s ease, background .22s ease, box-shadow .22s ease;
+  font-size: .9rem;
+}
+.form-control::placeholder { color: #687388; }
+.form-control:focus {
+  border-color: rgba(231, 197, 131, .52);
+  background: rgba(255,255,255,.09);
+  box-shadow: 0 0 0 4px rgba(231, 197, 131, .1);
+}
+textarea.form-control { min-height: 92px; resize: vertical; }
+select.form-control { -webkit-appearance: none; appearance: none; }
+
+.notice {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(231,197,131,.18);
+  border-radius: 13px;
+  color: #b3a888;
+  background: rgba(231,197,131,.05);
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  display: none;
+  max-width: min(400px, calc(100% - 40px));
+  padding: 16px 18px;
+  border: 1px solid rgba(91, 214, 160, .3);
+  border-radius: 16px;
+  color: #d5ffe7;
+  background: rgba(14, 39, 31, .94);
+  box-shadow: 0 18px 40px rgba(0,0,0,.4);
+  font-size: .84rem;
+  line-height: 1.5;
+}
+.toast.show { display: block; animation: toastIn .35s ease both; }
+
+/* Back to top */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  z-index: 45;
+  display: none;
+  place-items: center;
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(11, 15, 28, .9);
+  color: var(--gold-soft);
+  font-size: 1.2rem;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition: transform .22s ease, background .22s ease;
+}
+.to-top.show { display: grid; }
+.to-top:hover { transform: translateY(-3px); background: rgba(231,197,131,.14); }
+
+/* ---------- Animations ---------- */
+@keyframes pulse {
+  0%, 100% { opacity: .65; transform: scale(.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@keyframes floatA {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-14px) rotate(1deg); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-18px) rotate(-1deg); }
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(22px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 380px; margin-top: 8px; }
+  .student-stack { min-height: 380px; }
+  .course-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid, .testimonials { grid-template-columns: repeat(2, 1fr); }
+  .trust { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .menu-btn { display: grid; place-items: center; }
+}
+
+@media (max-width: 640px) {
+  .wrap { width: calc(100% - 24px); }
+  .hero { padding-top: 26px; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 320px; }
+  .student-stack { min-height: 320px; }
+  .course-grid { grid-template-columns: 1fr; }
+  .features-grid, .testimonials { grid-template-columns: 1fr; }
+  .trust { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .search-row { grid-template-columns: 1fr; }
+  .count-pill { min-height: 44px; }
+  .modal-meta-grid { grid-template-columns: 1fr; }
+  .modal-actions { flex-direction: column-reverse; }
+  .modal-actions .btn { width: 100%; }
+  .hero-actions .btn { flex: 1 1 auto; }
+  .header-cta { display: none; }
+  .to-top { bottom: 20px; right: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Aurelian Institute home">
+      <div class="brand-mark" aria-hidden="true"><span>A</span><span>I</span></div>
+      <div class="brand-text">
+        <strong>AURELIAN INSTITUTE</strong>
+        <small>London · United Kingdom</small>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#courses">Courses</a>
+      <a href="#why">Why us</a>
+      <a href="#students">Students</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a class="header-cta" href="#courses">Explore courses</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+      <a href="#courses">Courses</a>
+      <a href="#why">Why us</a>
+      <a href="#students">Students</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Rated #1 UK academy for remote careers</div>
+      <h1>Study in the UK. <span class="gold">Work from anywhere.</span></h1>
+      <p class="lead">
+        Aurelian Institute is a prestigious UK-based academy preparing ambitious
+        learners for the world's fastest-growing remote and hybrid careers.
+        Over 100 accredited courses — from cybersecurity and bookkeeping to
+        front-end development and virtual assistance.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#courses">Browse 100+ courses</a>
+        <a class="btn btn-ghost" href="#why">Why Aurelian?</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>100+</strong>
+          <span>Courses</span>
+        </div>
+        <div class="stat">
+          <strong>18k+</strong>
+          <span>Graduates</span>
+        </div>
+        <div class="stat">
+          <strong>92%</strong>
+          <span>Career outcome</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-badge glass">
+        <strong>UK</strong>
+        <span>Accredited</span>
+      </div>
+
+      <div class="student-stack">
+        <div class="student-card sc-1">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="UK students studying together">
+          <div class="label">Cohort 2025<small>London campus</small></div>
+        </div>
+
+        <div class="student-card sc-2">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Student working on laptop">
+          <div class="label">Remote lab</div>
+        </div>
+
+        <div class="student-card sc-3">
+          <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=800&q=80" alt="UK graduates smiling">
+          <div class="label">Graduation<small>Class of 2025</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="trust glass-soft">
+      <div class="trust-item"><strong>Ofqual-aligned</strong><span>Curriculum</span></div>
+      <div class="trust-item"><strong>CPD Certified</strong><span>Provider</span></div>
+      <div class="trust-item"><strong>UK-Based</strong><span>Support team</span></div>
+      <div class="trust-item"><strong>Lifetime Access</strong><span>To materials</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section id="courses">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Course catalogue</span>
+      <h2>100+ courses built for remote-ready careers.</h2>
+      <p>
+        Every course is designed by UK industry practitioners and updated for
+        2025 hiring standards. Most are paid — but a selection of our most
+        essential foundation courses, including Virtual Bookkeeping, are
+        completely free.
+      </p>
+    </div>
+
+    <div class="controls glass">
+      <div class="search-row">
+        <div class="search-wrap">
+          <input
+            class="search-input"
+            id="courseSearch"
+            type="search"
+            autocomplete="off"
+            placeholder="Search 100+ courses by title, skill or category..."
+            aria-label="Search courses">
+        </div>
+        <div class="count-pill" id="courseCount">0 courses</div>
+      </div>
+
+      <div class="filter-row" id="filterRow">
+        <span class="filter-label">Filter</span>
+        <button class="chip active" type="button" data-filter="all">All</button>
+        <button class="chip" type="button" data-filter="free">Free</button>
+        <button class="chip" type="button" data-filter="tech">Tech</button>
+        <button class="chip" type="button" data-filter="finance">Finance</button>
+        <button class="chip" type="button" data-filter="design">Design</button>
+        <button class="chip" type="button" data-filter="business">Business</button>
+        <button class="chip" type="button" data-filter="health">Health</button>
+        <button class="chip" type="button" data-filter="marketing">Marketing</button>
+        <button class="chip" type="button" data-filter="writing">Writing</button>
+      </div>
+    </div>
+
+    <div class="course-grid" id="courseGrid"></div>
+
+    <div class="load-more-wrap">
+      <button class="btn btn-ghost" id="loadMoreBtn" type="button">Load more courses</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Why Aurelian</span>
+      <h2>A UK institution built around remote-first careers.</h2>
+      <p>
+        We combine the academic rigour of a traditional UK school with the
+        flexibility of modern online learning — so you graduate with credentials
+        employers actually recognise.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <article class="feature glass">
+        <div class="feature-icon">🎓</div>
+        <h3>UK-accredited curriculum</h3>
+        <p>Every syllabus is mapped to UK standards and reviewed by practicing professionals working in remote and hybrid roles.</p>
+      </article>
+
+      <article class="feature glass">
+        <div class="feature-icon">🌍</div>
+        <h3>Global remote focus</h3>
+        <p>Learn the tools, workflows and communication habits that remote-first companies in the UK, EU and US actually hire for.</p>
+      </article>
+
+      <article class="feature glass">
+        <div class="feature-icon">💼</div>
+        <h3>Career support included</h3>
+        <p>CV reviews, portfolio guidance and interview prep from our London-based career team — included with every paid course.</p>
+      </article>
+
+      <article class="feature glass">
+        <div class="feature-icon">🕒</div>
+        <h3>Learn on your schedule</h3>
+        <p>Self-paced lessons, downloadable resources and lifetime access mean you can study around work, family or time zones.</p>
+      </article>
+
+      <article class="feature glass">
+        <div class="feature-icon">🏅</div>
+        <h3>Recognised certificates</h3>
+        <p>Graduate with a verifiable Aurelian Institute certificate — trusted by employers across the UK and beyond.</p>
+      </article>
+
+      <article class="feature glass">
+        <div class="feature-icon">💷</div>
+        <h3>Free foundation courses</h3>
+        <p>Start with essential free courses like Virtual Bookkeeping and Data Entry before investing in advanced specialisations.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STUDENTS ============ -->
+<section id="students">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Our students</span>
+      <h2>Learners from across the United Kingdom.</h2>
+      <p>
+        From London to Manchester, Cardiff to Edinburgh — Aurelian students are
+        building remote careers on their own terms. Here is what a few of them
+        have to say.
+      </p>
+    </div>
+
+    <div class="testimonials">
+      <article class="testimonial glass">
+        <p>I completed the Virtual Bookkeeping course for free, then took the Advanced Xero specialisation. Within four months I had my first remote client. The UK-based tutors were incredibly supportive.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Amelia Clarke">
+          </div>
+          <div>
+            <strong>Amelia Clarke</strong>
+            <span>Virtual Bookkeeper · Manchester</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial glass">
+        <p>The Front-End Development track was genuinely practical. We built real projects, deployed them, and my portfolio got me interviews at three UK startups. Worth every penny.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Daniel Okafor">
+          </div>
+          <div>
+            <strong>Daniel Okafor</strong>
+            <span>Front-End Developer · London</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial glass">
+        <p>As a nurse transitioning to remote triage, the Remote Healthcare Support course gave me exactly the skills I needed. The CPD certificate was recognised by my new employer straight away.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80" alt="Sophie Bennett">
+          </div>
+          <div>
+            <strong>Sophie Bennett</strong>
+            <span>Remote Triage Nurse · Edinburgh</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="cta-band glass">
+      <h2>Start with a free course. Grow into a career.</h2>
+      <p>
+        Join over 18,000 learners who have used Aurelian Institute to move into
+        remote and hybrid roles across the UK and Europe. No experience required
+        to start — just curiosity.
+      </p>
+      <a class="btn btn-gold" href="#courses">Explore all courses</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <div class="brand-mark" aria-hidden="true"><span>A</span><span>I</span></div>
+          <div class="brand-text">
+            <strong>AURELIAN INSTITUTE</strong>
+            <small>London · United Kingdom</small>
+          </div>
+        </a>
+        <p>
+          A UK-based academy preparing learners for remote and hybrid careers.
+          100+ courses, lifetime access, and certificates employers recognise.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <a href="#courses">All courses</a>
+        <a href="#courses">Free courses</a>
+        <a href="#courses">Tech &amp; development</a>
+        <a href="#courses">Finance &amp; bookkeeping</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Institute</h4>
+        <a href="#why">Why Aurelian</a>
+        <a href="#students">Student stories</a>
+        <a href="#about">About us</a>
+        <a href="#top">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#top">Terms of service</a>
+        <a href="#top">Privacy policy</a>
+        <a href="#top">Refund policy</a>
+        <a href="#top">Accessibility</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Aurelian Institute. Registered in England &amp; Wales.</span>
+      <span>Made in the United Kingdom 🇬🇧</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ COURSE MODAL ============ -->
+<div class="modal-backdrop" id="courseModal" aria-hidden="true">
+  <div class="modal glass" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div>
+        <div class="modal-kicker" id="modalKicker">Course</div>
+        <h2 id="modalTitle">Course title</h2>
+      </div>
+      <button class="close-btn" type="button" id="modalClose" aria-label="Close">×</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-meta-grid" id="modalMeta"></div>
+      <p id="modalOverview"></p>
+      <ul class="detail-list" id="modalOutcomes"></ul>
+      <div class="notice" id="modalNotice"></div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-ghost" type="button" id="modalCancel">Close</button>
+      <button class="btn btn-gold" type="button" id="modalEnrol">Enrol now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ENROL MODAL ============ -->
+<div class="modal-backdrop" id="enrolModal" aria-hidden="true">
+  <div class="modal glass" role="dialog" aria-modal="true" aria-labelledby="enrolTitle">
+    <div class="modal-head">
+      <div>
+        <div class="modal-kicker" id="enrolKicker">Enrolment</div>
+        <h2 id="enrolTitle">Enrol in this course</h2>
+      </div>
+      <button class="close-btn" type="button" id="enrolClose" aria-label="Close">×</button>
+    </div>
+
+    <form id="enrolForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="enrolName">Full name</label>
+        <input class="form-control" id="enrolName" name="enrolName" type="text" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="enrolEmail">Email address</label>
+        <input class="form-control" id="enrolEmail" name="enrolEmail" type="email" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="enrolCountry">Country</label>
+        <input class="form-control" id="enrolCountry" name="enrolCountry" type="text" placeholder="United Kingdom" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="enrolGoal">What do you want to achieve?</label>
+        <textarea class="form-control" id="enrolGoal" name="enrolGoal" placeholder="Optional — tell us about your goals"></textarea>
+      </div>
+
+      <div class="notice">
+        Aurelian Institute will only use your information to process this
+        enrolment and contact you about your course. We never ask for payment
+        card details, banking PINs, one-time codes or passwords by email.
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" id="enrolCancel">Cancel</button>
+        <button class="btn btn-gold" type="submit">Confirm enrolment</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ TOAST & TOP ============ -->
+<div class="toast" id="toast" role="status"></div>
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
+
+<script>
+"use strict";
+
+/* =========================================================
+   AURELIAN INSTITUTE — COMPATIBILITY-FIRST JS
+   ES5 syntax, safe for older mobile browsers and WebViews.
+   ========================================================= */
+
+/* ---------- COURSE DATA (100 courses) ---------- */
+var courses = [
+  /* ---------- FREE FOUNDATION (5) ---------- */
+  { id:"free-virtual-bookkeeping", cat:"finance", title:"Virtual Bookkeeping", desc:"Master the essentials of remote bookkeeping using Xero, QuickBooks and spreadsheets.", duration:"6 weeks", level:"Beginner", price:0, emoji:"📘", outcomes:["Set up and manage a chart of accounts","Record day-to-day transactions accurately","Reconcile bank and credit card accounts","Prepare monthly bookkeeping reports","Work confidently with remote clients"] },
+  { id:"free-data-entry", cat:"business", title:"Data Entry Specialist Essentials", desc:"Learn the accuracy, speed and spreadsheet skills remote data entry roles demand.", duration:"3 weeks", level:"Beginner", price:0, emoji:"⌨️", outcomes:["Type at 50+ WPM with 99% accuracy","Use Excel and Google Sheets confidently","Follow data-quality procedures","Handle confidential records responsibly"] },
+  { id:"free-remote-work", cat:"business", title:"Remote Work Foundations", desc:"Build the habits, tools and communication skills for successful remote work.", duration:"2 weeks", level:"Beginner", price:0, emoji:"🏡", outcomes:["Set up a productive home workspace","Master async communication tools","Manage time across time zones","Present professionally on video"] },
+  { id:"free-cv", cat:"business", title:"Remote-Ready CV & LinkedIn", desc:"Craft a CV and LinkedIn profile that land remote interviews.", duration:"1 week", level:"Beginner", price:0, emoji:"📄", outcomes:["Write an ATS-friendly CV","Optimise your LinkedIn for recruiter search","Craft a compelling remote work narrative"] },
+  { id:"free-cyber-awareness", cat:"tech", title:"Cyber Security Awareness", desc:"Protect yourself and your employer from the most common cyber threats.", duration:"2 weeks", level:"Beginner", price:0, emoji:"🔐", outcomes:["Identify phishing attempts","Use password managers safely","Secure home networks and devices"] },
+
+  /* ---------- TECH (30) ---------- */
+  { id:"t-frontend", cat:"tech", title:"Front-End Development", desc:"Build responsive, accessible websites with HTML, CSS and JavaScript.", duration:"12 weeks", level:"Beginner", price:499, emoji:"💻", outcomes:["Write semantic HTML and modern CSS","Build interactive UIs with JavaScript","Work with Git and GitHub","Deploy production websites"] },
+  { id:"t-backend", cat:"tech", title:"Back-End Development with Node.js", desc:"Build scalable APIs and server-side applications using Node.js.", duration:"14 weeks", level:"Intermediate", price:599, emoji:"⚙️", outcomes:["Build REST APIs","Work with databases","Implement authentication","Deploy to cloud platforms"] },
+  { id:"t-fullstack", cat:"tech", title:"Full-Stack Web Development", desc:"Master both front-end and back-end to become a complete remote developer.", duration:"24 weeks", level:"Intermediate", price:999, emoji:"🧩", outcomes:["Build full-stack applications","Understand databases and ORMs","Use modern frameworks","Ship production projects"] },
+  { id:"t-react", cat:"tech", title:"React Development", desc:"Build modern component-based user interfaces with React.", duration:"10 weeks", level:"Intermediate", price:399, emoji:"⚛️", outcomes:["Build reusable React components","Manage state with hooks","Integrate APIs","Optimise performance"] },
+  { id:"t-python", cat:"tech", title:"Python Programming", desc:"Learn Python from scratch — the most in-demand language for remote work.", duration:"10 weeks", level:"Beginner", price:349, emoji:"🐍", outcomes:["Write clean Python code","Work with files and APIs","Automate repetitive tasks","Build small applications"] },
+  { id:"t-data-science", cat:"tech", title:"Data Science Foundations", desc:"Analyse data, build models and communicate insights.", duration:"14 weeks", level:"Intermediate", price:699, emoji:"📊", outcomes:["Clean and analyse datasets","Build predictive models","Visualise data effectively"] },
+  { id:"t-sql", cat:"tech", title:"SQL for Data Analysts", desc:"Query, join and analyse data from relational databases.", duration:"6 weeks", level:"Beginner", price:249, emoji:"🗃️", outcomes:["Write complex SQL queries","Join multiple tables","Aggregate data for reports"] },
+  { id:"t-cyber", cat:"tech", title:"Cyber Security Fundamentals", desc:"Enter the cybersecurity field with core defensive skills.", duration:"12 weeks", level:"Beginner", price:549, emoji:"🛡️", outcomes:["Understand threat landscape","Secure networks and endpoints","Respond to incidents"] },
+  { id:"t-ethical-hacking", cat:"tech", title:"Ethical Hacking & Pen Testing", desc:"Learn offensive security techniques ethically and legally.", duration:"14 weeks", level:"Advanced", price:749, emoji:"🔎", outcomes:["Perform penetration tests","Write security reports","Use industry tools like Nmap and Burp"] },
+  { id:"t-cloud-aws", cat:"tech", title:"Cloud Computing with AWS", desc:"Master core AWS services for remote cloud roles.", duration:"10 weeks", level:"Intermediate", price:449, emoji:"☁️", outcomes:["Deploy EC2 and S3 resources","Configure IAM and VPC","Prepare for AWS certification"] },
+  { id:"t-devops", cat:"tech", title:"DevOps Foundations", desc:"Automate deployments, testing and infrastructure.", duration:"12 weeks", level:"Intermediate", price:599, emoji:"🔧", outcomes:["Use CI/CD pipelines","Containerise apps with Docker","Manage infrastructure as code"] },
+  { id:"t-mobile-ios", cat:"tech", title:"iOS Development with Swift", desc:"Build native iPhone and iPad apps from scratch.", duration:"14 weeks", level:"Intermediate", price:649, emoji:"🍎", outcomes:["Build native iOS apps","Work with SwiftUI","Publish to the App Store"] },
+  { id:"t-mobile-android", cat:"tech", title:"Android Development with Kotlin", desc:"Build native Android applications using Kotlin.", duration:"14 weeks", level:"Intermediate", price:649, emoji:"🤖", outcomes:["Build native Android apps","Work with Jetpack Compose","Publish to Google Play"] },
+  { id:"t-qa", cat:"tech", title:"Software QA & Testing", desc:"Manual and automated testing for remote QA roles.", duration:"8 weeks", level:"Beginner", price:349, emoji:"🧪", outcomes:["Write test plans and cases","Use Selenium and Cypress","Report defects effectively"] },
+  { id:"t-ai-ml", cat:"tech", title:"AI & Machine Learning Basics", desc:"Understand and apply foundational AI and ML concepts.", duration:"12 weeks", level:"Intermediate", price:749, emoji:"🧠", outcomes:["Understand ML algorithms","Train simple models","Use Python ML libraries"] },
+  { id:"t-ux", cat:"tech", title:"UX Design Fundamentals", desc:"Design user experiences that work beautifully.", duration:"8 weeks", level:"Beginner", price:399, emoji:"🎯", outcomes:["Conduct user research","Build wireframes and prototypes","Run usability tests"] },
+  { id:"t-wordpress", cat:"tech", title:"WordPress Development", desc:"Build and customise WordPress sites for clients.", duration:"6 weeks", level:"Beginner", price:249, emoji:"📰", outcomes:["Install and configure WordPress","Customise themes","Build client sites"] },
+  { id:"t-shopify", cat:"tech", title:"Shopify Store Development", desc:"Launch and customise e-commerce stores on Shopify.", duration:"5 weeks", level:"Beginner", price:249, emoji:"🛒", outcomes:["Set up Shopify stores","Customise themes","Manage products and orders"] },
+  { id:"t-seo-tech", cat:"tech", title:"Technical SEO", desc:"Optimise websites for search engines and performance.", duration:"6 weeks", level:"Intermediate", price:349, emoji:"🔍", outcomes:["Audit site performance","Fix indexing issues","Improve Core Web Vitals"] },
+  { id:"t-api", cat:"tech", title:"API Design & Integration", desc:"Design and consume REST and GraphQL APIs.", duration:"6 weeks", level:"Intermediate", price:349, emoji:"🔌", outcomes:["Design REST APIs","Work with GraphQL","Handle authentication"] },
+  { id:"t-git", cat:"tech", title:"Git & Version Control", desc:"Master Git for collaborative development.", duration:"3 weeks", level:"Beginner", price:129, emoji:"🌿", outcomes:["Use Git confidently","Collaborate on GitHub","Resolve merge conflicts"] },
+  { id:"t-linux", cat:"tech", title:"Linux for Remote Developers", desc:"Command-line skills every remote developer needs.", duration:"6 weeks", level:"Beginner", price:249, emoji:"🐧", outcomes:["Navigate Linux confidently","Write shell scripts","Manage servers"] },
+  { id:"t-cyber-trainer", cat:"tech", title:"Cyber Security Trainer Certification", desc:"Teach cybersecurity awareness to employees in remote teams.", duration:"8 weeks", level:"Advanced", price:549, emoji:"🎤", outcomes:["Design security training","Deliver virtual workshops","Assess learner outcomes"] },
+  { id:"t-blockchain", cat:"tech", title:"Blockchain Fundamentals", desc:"Understand blockchain, crypto and smart contracts.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"⛓️", outcomes:["Understand blockchain basics","Write simple smart contracts","Explore Web3"] },
+  { id:"t-nocode", cat:"tech", title:"No-Code Development", desc:"Build apps without code using modern no-code tools.", duration:"6 weeks", level:"Beginner", price:249, emoji:"🧱", outcomes:["Build apps with no-code tools","Automate workflows","Launch MVPs quickly"] },
+  { id:"t-excel-advanced", cat:"tech", title:"Advanced Excel for Analysts", desc:"Pivot tables, Power Query and advanced formulas.", duration:"6 weeks", level:"Intermediate", price:199, emoji:"📈", outcomes:["Master pivot tables","Use Power Query","Build dashboards"] },
+  { id:"t-power-bi", cat:"tech", title:"Power BI for Business", desc:"Turn data into interactive business dashboards.", duration:"6 weeks", level:"Intermediate", price:299, emoji:"📉", outcomes:["Connect data sources","Build interactive reports","Publish dashboards"] },
+  { id:"t-tableau", cat:"tech", title:"Tableau Data Visualisation", desc:"Create stunning data visualisations with Tableau.", duration:"6 weeks", level:"Intermediate", price:299, emoji:"🎨", outcomes:["Build Tableau dashboards","Use calculated fields","Publish to Tableau Public"] },
+  { id:"t-cyber-forensics", cat:"tech", title:"Digital Forensics", desc:"Investigate cyber incidents and recover digital evidence.", duration:"10 weeks", level:"Advanced", price:649, emoji:"🕵️", outcomes:["Collect digital evidence","Analyse disk images","Write forensic reports"] },
+  { id:"t-sre", cat:"tech", title:"Site Reliability Engineering", desc:"Keep large-scale systems running reliably.", duration:"10 weeks", level:"Advanced", price:649, emoji:"📡", outcomes:["Monitor production systems","Design for reliability","Handle incidents"] },
+
+  /* ---------- FINANCE (15) ---------- */
+  { id:"f-accounting", cat:"finance", title:"Accounting Fundamentals", desc:"The essential principles of accounting for remote finance roles.", duration:"8 weeks", level:"Beginner", price:349, emoji:"📒", outcomes:["Understand debits and credits","Prepare financial statements","Close monthly books"] },
+  { id:"f-bookkeeping-adv", cat:"finance", title:"Advanced Bookkeeping with Xero", desc:"Master Xero for professional remote bookkeeping.", duration:"6 weeks", level:"Intermediate", price:299, emoji:"💼", outcomes:["Set up clients in Xero","Automate bank feeds","Prepare VAT returns"] },
+  { id:"f-quickbooks", cat:"finance", title:"QuickBooks for Remote Bookkeepers", desc:"Manage client books end-to-end with QuickBooks Online.", duration:"6 weeks", level:"Intermediate", price:299, emoji:"📗", outcomes:["Set up QBO companies","Record transactions","Reconcile accounts"] },
+  { id:"f-payroll", cat:"finance", title:"UK Payroll Administration", desc:"Process UK payroll accurately and compliantly.", duration:"8 weeks", level:"Intermediate", price:399, emoji:"💷", outcomes:["Process monthly payroll","Handle PAYE and NI","Manage auto-enrolment pensions"] },
+  { id:"f-vat", cat:"finance", title:"UK VAT Compliance", desc:"Master VAT registration, returns and MTD.", duration:"4 weeks", level:"Intermediate", price:229, emoji:"🧾", outcomes:["Register for VAT","Prepare VAT returns","Understand Making Tax Digital"] },
+  { id:"f-financial-analysis", cat:"finance", title:"Financial Analysis", desc:"Analyse company performance and communicate insights.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"📊", outcomes:["Read financial statements","Build financial models","Present findings"] },
+  { id:"f-corporate-finance", cat:"finance", title:"Corporate Finance", desc:"Understand capital structure, valuation and M&A.", duration:"10 weeks", level:"Advanced", price:649, emoji:"🏦", outcomes:["Value companies","Understand capital markets","Analyse M&A transactions"] },
+  { id:"f-accounting-software", cat:"finance", title:"Sage Accounting", desc:"Master Sage for UK accounting and bookkeeping.", duration:"6 weeks", level:"Intermediate", price:279, emoji:"📘", outcomes:["Use Sage confidently","Process transactions","Produce reports"] },
+  { id:"f-credit-control", cat:"finance", title:"Credit Control & Collections", desc:"Manage debtor relationships and cash flow remotely.", duration:"6 weeks", level:"Intermediate", price:299, emoji:"📞", outcomes:["Manage credit limits","Chase overdue invoices","Negotiate payment plans"] },
+  { id:"f-audit", cat:"finance", title:"Internal Audit Fundamentals", desc:"Learn audit methodology for UK and remote roles.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"🔍", outcomes:["Plan audit engagements","Test controls","Write audit reports"] },
+  { id:"f-financial-modelling", cat:"finance", title:"Financial Modelling in Excel", desc:"Build robust financial models used in investment banking.", duration:"10 weeks", level:"Advanced", price:649, emoji:"📐", outcomes:["Build 3-statement models","Use DCF valuation","Create scenario analysis"] },
+  { id:"f-tax-uk", cat:"finance", title:"UK Personal Tax", desc:"Master UK income tax, NIC and self-assessment.", duration:"6 weeks", level:"Intermediate", price:349, emoji:"🏛️", outcomes:["Calculate income tax","File self-assessment","Advise on tax basics"] },
+  { id:"f-crypto-accounting", cat:"finance", title:"Crypto Accounting", desc:"Account for crypto assets correctly for clients.", duration:"6 weeks", level:"Intermediate", price:399, emoji:"₿", outcomes:["Record crypto transactions","Calculate gains and losses","Report correctly"] },
+  { id:"f-finance-manager", cat:"finance", title:"Finance Manager Essentials", desc:"Step up from bookkeeper to finance manager.", duration:"10 weeks", level:"Advanced", price:599, emoji:"👔", outcomes:["Lead finance teams","Prepare management accounts","Drive business decisions"] },
+  { id:"f-xero-advanced", cat:"finance", title:"Xero Advanced Certifications", desc:"Become a certified Xero advisor.", duration:"6 weeks", level:"Advanced", price:399, emoji:"🏅", outcomes:["Use Xero Projects","Manage inventory","Handle multi-currency"] },
+
+  /* ---------- DESIGN (12) ---------- */
+  { id:"d-graphic", cat:"design", title:"Graphic Design Foundations", desc:"Master layout, typography and colour for remote design work.", duration:"10 weeks", level:"Beginner", price:399, emoji:"🎨", outcomes:["Design with typography","Use colour theory","Build a portfolio"] },
+  { id:"d-ui", cat:"design", title:"UI Design", desc:"Design beautiful, usable interfaces for web and mobile.", duration:"8 weeks", level:"Intermediate", price:399, emoji:"📱", outcomes:["Design UI components","Build design systems","Prototype in Figma"] },
+  { id:"d-figma", cat:"design", title:"Figma Mastery", desc:"Become a Figma power user.", duration:"4 weeks", level:"Beginner", price:199, emoji:"🖌️", outcomes:["Master Figma tools","Build components","Prototype interactions"] },
+  { id:"d-adobe-illustrator", cat:"design", title:"Adobe Illustrator", desc:"Master vector design with Illustrator.", duration:"6 weeks", level:"Beginner", price:249, emoji:"🖍️", outcomes:["Create vector artwork","Design logos","Prepare files for print"] },
+  { id:"d-adobe-photoshop", cat:"design", title:"Adobe Photoshop", desc:"Master photo editing and compositing.", duration:"6 weeks", level:"Beginner", price:249, emoji:"🖼️", outcomes:["Retouch photos","Composite images","Prepare assets for web"] },
+  { id:"d-brand-design", cat:"design", title:"Brand Design", desc:"Build complete brand identities for clients.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"✨", outcomes:["Design brand systems","Create brand guidelines","Present to clients"] },
+  { id:"d-motion", cat:"design", title:"Motion Graphics with After Effects", desc:"Create motion graphics and animated content.", duration:"10 weeks", level:"Intermediate", price:499, emoji:"🎬", outcomes:["Animate graphics","Use After Effects","Export for social media"] },
+  { id:"d-video-edit", cat:"design", title:"Video Editing", desc:"Edit professional video content remotely.", duration:"8 weeks", level:"Beginner", price:399, emoji:"🎞️", outcomes:["Edit in Premiere Pro","Colour grade footage","Deliver for platforms"] },
+  { id:"d-3d", cat:"design", title:"3D Design with Blender", desc:"Create 3D assets and scenes with Blender.", duration:"10 weeks", level:"Intermediate", price:499, emoji:"🧊", outcomes:["Model in Blender","Render 3D scenes","Create textures"] },
+  { id:"d-illustration", cat:"design", title:"Digital Illustration", desc:"Develop your illustration style for clients.", duration:"8 weeks", level:"Intermediate", price:399, emoji:"🖊️", outcomes:["Develop personal style","Work with clients","Build an illustration portfolio"] },
+  { id:"d-ux-research", cat:"design", title:"UX Research", desc:"Run research that informs better design decisions.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"🔬", outcomes:["Plan research studies","Run interviews","Synthesise insights"] },
+  { id:"d-presentation", cat:"design", title:"Presentation Design", desc:"Design compelling presentations for remote work.", duration:"4 weeks", level:"Beginner", price:179, emoji:"📽️", outcomes:["Design clear slide decks","Use data visualisation","Present remotely"] },
+
+  /* ---------- BUSINESS (15) ---------- */
+  { id:"b-virtual-assistant", cat:"business", title:"Virtual Assistant", desc:"Launch a thriving virtual assistant business.", duration:"8 weeks", level:"Beginner", price:299, emoji:"🗂️", outcomes:["Manage calendars and inboxes","Handle client communications","Run a VA business"] },
+  { id:"b-project-management", cat:"business", title:"Project Management", desc:"Lead projects remotely using agile and traditional methods.", duration:"10 weeks", level:"Intermediate", price:449, emoji:"📋", outcomes:["Plan and lead projects","Use Agile and Scrum","Manage stakeholders"] },
+  { id:"b-pmp", cat:"business", title:"PMP Exam Preparation", desc:"Prepare for the Project Management Professional certification.", duration:"12 weeks", level:"Advanced", price:599, emoji:"🏅", outcomes:["Understand PMBOK","Pass the PMP exam","Lead complex projects"] },
+  { id:"b-scrum", cat:"business", title:"Scrum Master Certification", desc:"Become a certified Scrum Master.", duration:"6 weeks", level:"Intermediate", price:399, emoji:"🔄", outcomes:["Facilitate Scrum events","Coach teams","Pass Scrum certification"] },
+  { id:"b-customer-service", cat:"business", title:"Remote Customer Service", desc:"Deliver outstanding customer service from anywhere.", duration:"6 weeks", level:"Beginner", price:229, emoji:"🎧", outcomes:["Handle customer queries","Use helpdesk tools","Manage difficult customers"] },
+  { id:"b-recruitment", cat:"business", title:"Remote Recruitment", desc:"Source and hire talent for remote-first companies.", duration:"8 weeks", level:"Intermediate", price:399, emoji:"🤝", outcomes:["Source candidates","Screen and interview","Use ATS systems"] },
+  { id:"b-hr", cat:"business", title:"HR Administration", desc:"Support HR functions in remote organisations.", duration:"8 weeks", level:"Beginner", price:349, emoji:"🧑‍💼", outcomes:["Handle HR admin","Support onboarding","Understand employment law basics"] },
+  { id:"b-executive-assistant", cat:"business", title:"Executive Assistant", desc:"Support senior leaders in high-level EA roles.", duration:"10 weeks", level:"Intermediate", price:449, emoji:"📌", outcomes:["Manage executive calendars","Coordinate travel","Handle confidential matters"] },
+  { id:"b-operations", cat:"business", title:"Remote Operations Management", desc:"Run operations for distributed teams.", duration:"10 weeks", level:"Intermediate", price:499, emoji:"⚙️", outcomes:["Build operational processes","Manage remote teams","Track KPIs"] },
+  { id:"b-leadership", cat:"business", title:"Remote Team Leadership", desc:"Lead and grow distributed teams effectively.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"🧭", outcomes:["Lead remote teams","Run effective 1:1s","Build team culture"] },
+  { id:"b-podcast", cat:"business", title:"Podcast Production", desc:"Launch and produce a professional podcast.", duration:"6 weeks", level:"Beginner", price:249, emoji:"🎙️", outcomes:["Record and edit audio","Publish to platforms","Grow an audience"] },
+  { id:"b-business-analyst", cat:"business", title:"Business Analysis", desc:"Bridge business and technical teams as a BA.", duration:"10 weeks", level:"Intermediate", price:549, emoji:"🔍", outcomes:["Gather requirements","Model processes","Deliver BA documentation"] },
+  { id:"b-ecommerce", cat:"business", title:"E-commerce Management", desc:"Run successful online stores end-to-end.", duration:"8 weeks", level:"Intermediate", price:399, emoji:"🛍️", outcomes:["Manage e-commerce stores","Run marketing campaigns","Handle fulfilment"] },
+  { id:"b-supply-chain", cat:"business", title:"Supply Chain Fundamentals", desc:"Understand modern supply chains for remote roles.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"🚚", outcomes:["Understand supply chain basics","Manage inventory","Optimise logistics"] },
+  { id:"b-amazon-fba", cat:"business", title:"Amazon FBA Business", desc:"Launch an Amazon FBA business from anywhere.", duration:"8 weeks", level:"Beginner", price:449, emoji:"📦", outcomes:["Find profitable products","Launch on Amazon","Manage FBA inventory"] },
+
+  /* ---------- HEALTH (8) ---------- */
+  { id:"h-remote-nurse", cat:"health", title:"Remote Nursing Support", desc:"Transition your nursing career to remote roles.", duration:"8 weeks", level:"Intermediate", price:549, emoji:"🩺", outcomes:["Deliver virtual care","Document remotely","Follow clinical protocols"] },
+  { id:"h-medical-coding", cat:"health", title:"Medical Coding & Billing", desc:"Code medical records accurately for remote roles.", duration:"12 weeks", level:"Intermediate", price:599, emoji:"🧾", outcomes:["Understand ICD and CPT","Code medical records","Prepare billing claims"] },
+  { id:"h-medical-transcription", cat:"health", title:"Medical Transcription", desc:"Transcribe medical records accurately from home.", duration:"8 weeks", level:"Beginner", price:349, emoji:"🎧", outcomes:["Transcribe medical audio","Use medical terminology","Ensure accuracy"] },
+  { id:"h-telehealth", cat:"health", title:"Telehealth Coordination", desc:"Coordinate virtual care for patients and clinicians.", duration:"6 weeks", level:"Intermediate", price:399, emoji:"💻", outcomes:["Schedule virtual visits","Support patients remotely","Handle clinical admin"] },
+  { id:"h-health-admin", cat:"health", title:"Healthcare Administration", desc:"Support healthcare organisations remotely.", duration:"8 weeks", level:"Beginner", price:349, emoji:"🗂️", outcomes:["Handle patient records","Support clinical teams","Manage healthcare systems"] },
+  { id:"h-mental-health", cat:"health", title:"Mental Health First Aid", desc:"Support mental health in remote workplaces.", duration:"4 weeks", level:"Beginner", price:199, emoji:"💚", outcomes:["Recognise mental health issues","Provide first-line support","Signpost resources"] },
+  { id:"h-pharmacy", cat:"health", title:"Remote Pharmacy Support", desc:"Support pharmacy operations remotely.", duration:"6 weeks", level:"Intermediate", price:399, emoji:"💊", outcomes:["Handle prescriptions","Support patients","Understand compliance"] },
+  { id:"h-fitness", cat:"health", title:"Online Fitness Coaching", desc:"Coach clients remotely as a fitness professional.", duration:"8 weeks", level:"Beginner", price:349, emoji:"🏋️", outcomes:["Design online programmes","Coach clients remotely","Build a coaching business"] },
+
+  /* ---------- MARKETING (10) ---------- */
+  { id:"m-digital-marketing", cat:"marketing", title:"Digital Marketing Foundations", desc:"Master the fundamentals of modern digital marketing.", duration:"8 weeks", level:"Beginner", price:399, emoji:"📣", outcomes:["Understand marketing channels","Build campaigns","Measure results"] },
+  { id:"m-seo", cat:"marketing", title:"SEO Fundamentals", desc:"Rank websites on Google with proven SEO techniques.", duration:"6 weeks", level:"Beginner", price:299, emoji:"🔎", outcomes:["Do keyword research","Optimise on-page SEO","Build backlinks"] },
+  { id:"m-google-ads", cat:"marketing", title:"Google Ads", desc:"Run profitable Google Ads campaigns.", duration:"6 weeks", level:"Intermediate", price:349, emoji:"🎯", outcomes:["Set up campaigns","Optimise ad spend","Measure ROI"] },
+  { id:"m-facebook-ads", cat:"marketing", title:"Meta Ads (Facebook & Instagram)", desc:"Master paid social advertising on Meta platforms.", duration:"6 weeks", level:"Intermediate", price:349, emoji:"📱", outcomes:["Build Meta ad campaigns","Create audiences","Optimise performance"] },
+  { id:"m-media-buyer", cat:"marketing", title:"Media Buying", desc:"Manage ad budgets and campaigns for clients.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"💸", outcomes:["Manage ad budgets","Run tests","Report performance"] },
+  { id:"m-content-marketing", cat:"marketing", title:"Content Marketing", desc:"Build content strategies that convert.", duration:"8 weeks", level:"Intermediate", price:399, emoji:"✍️", outcomes:["Build content strategies","Plan editorial calendars","Measure content ROI"] },
+  { id:"m-email-marketing", cat:"marketing", title:"Email Marketing", desc:"Master email campaigns that drive revenue.", duration:"6 weeks", level:"Beginner", price:299, emoji:"📧", outcomes:["Build email lists","Design campaigns","Automate sequences"] },
+  { id:"m-social-media", cat:"marketing", title:"Social Media Management", desc:"Manage social media for brands remotely.", duration:"8 weeks", level:"Beginner", price:349, emoji:"📲", outcomes:["Plan content calendars","Engage communities","Report analytics"] },
+  { id:"m-affiliate", cat:"marketing", title:"Affiliate Marketing", desc:"Build passive income through affiliate marketing.", duration:"8 weeks", level:"Beginner", price:349, emoji:"🔗", outcomes:["Choose profitable niches","Build affiliate sites","Track conversions"] },
+  { id:"m-analytics", cat:"marketing", title:"Marketing Analytics", desc:"Measure and optimise marketing performance.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"📈", outcomes:["Use Google Analytics","Build dashboards","Optimise funnels"] },
+
+  /* ---------- WRITING (10) ---------- */
+  { id:"w-copywriting", cat:"writing", title:"Copywriting", desc:"Write persuasive copy for ads, websites and emails.", duration:"8 weeks", level:"Beginner", price:349, emoji:"✒️", outcomes:["Write persuasive copy","Understand buyer psychology","Build a copywriting portfolio"] },
+  { id:"w-content-writing", cat:"writing", title:"Content Writing", desc:"Write articles, blogs and web content that rank and convert.", duration:"6 weeks", level:"Beginner", price:299, emoji:"📝", outcomes:["Write clear, engaging content","Research topics","Meet editorial standards"] },
+  { id:"w-technical-writing", cat:"writing", title:"Technical Writing", desc:"Write documentation, APIs and user guides.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"📐", outcomes:["Write technical documentation","Use docs-as-code","Explain complex concepts"] },
+  { id:"w-ux-writing", cat:"writing", title:"UX Writing", desc:"Write microcopy that improves user experience.", duration:"6 weeks", level:"Intermediate", price:349, emoji:"✏️", outcomes:["Write UX microcopy","Work with designers","Improve product voice"] },
+  { id:"w-copy-editing", cat:"writing", title:"Copy Editing & Proofreading", desc:"Polish writing for clarity, grammar and style.", duration:"6 weeks", level:"Beginner", price:249, emoji:"🔍", outcomes:["Edit for clarity","Use style guides","Proofread accurately"] },
+  { id:"w-scriptwriting", cat:"writing", title:"Scriptwriting for Video", desc:"Write scripts for YouTube, ads and corporate video.", duration:"6 weeks", level:"Beginner", price:299, emoji:"🎬", outcomes:["Write video scripts","Structure stories","Adapt for platforms"] },
+  { id:"w-ghostwriting", cat:"writing", title:"Ghostwriting", desc:"Write books and content for clients under their name.", duration:"8 weeks", level:"Intermediate", price:449, emoji:"👻", outcomes:["Ghostwrite books","Work with clients","Handle NDAs"] },
+  { id:"w-email-newsletter", cat:"writing", title:"Newsletter Writing", desc:"Build and write newsletters that people actually read.", duration:"4 weeks", level:"Beginner", price:199, emoji:"💌", outcomes:["Write engaging newsletters","Grow subscriber lists","Monetise newsletters"] },
+  { id:"w-press-release", cat:"writing", title:"Press Release & PR Writing", desc:"Write press releases and PR copy.", duration:"4 weeks", level:"Beginner", price:179, emoji:"📰", outcomes:["Write press releases","Pitch journalists","Handle PR basics"] },
+  { id:"w-author", cat:"writing", title:"Self-Publishing for Authors", desc:"Publish and sell your own books online.", duration:"8 weeks", level:"Intermediate", price:399, emoji:"📚", outcomes:["Publish on Amazon KDP","Design book covers","Market your book"] }
+];
+
+/* ---------- STATE ---------- */
+var state = {
+  query: "",
+  filter: "all",
+  visibleCount: 24,
+  pageSize: 24,
+  selectedCourse: null
+};
+
+/* ---------- DOM ---------- */
+function el(id) { return document.getElementById(id); }
+
+var dom = {
+  grid: el("courseGrid"),
+  search: el("courseSearch"),
+  count: el("courseCount"),
+  filterRow: el("filterRow"),
+  loadMore: el("loadMoreBtn"),
+
+  courseModal: el("courseModal"),
+  modalKicker: el("modalKicker"),
+  modalTitle: el("modalTitle"),
+  modalMeta: el("modalMeta"),
+  modalOverview: el("modalOverview"),
+  modalOutcomes: el("modalOutcomes"),
+  modalNotice: el("modalNotice"),
+  modalClose: el("modalClose"),
+  modalCancel: el("modalCancel"),
+  modalEnrol: el("modalEnrol"),
+
+  enrolModal: el("enrolModal"),
+  enrolKicker: el("enrolKicker"),
+  enrolTitle: el("enrolTitle"),
+  enrolClose: el("enrolClose"),
+  enrolCancel: el("enrolCancel"),
+  enrolForm: el("enrolForm"),
+
+  toast: el("toast"),
+  toTop: el("toTop"),
+  year: el("year"),
+  menuBtn: el("menuBtn"),
+  mobileNav: el("mobileNav")
+};
+
+/* ---------- HELPERS ---------- */
+function safeTrim(v) { return String(v || "").replace(/^\s+|\s+$/g, ""); }
+function safeLower(v) { return String(v || "").toLowerCase(); }
+
+function formatPrice(price) {
+  if (!price || price === 0) return "Free";
+  return "£" + price;
+}
+
+function formatPriceLong(price) {
+  if (!price || price === 0) return "Free";
+  return "£" + price + " GBP";
+}
+
+function safeAddEvent(element, eventName, handler) {
+  if (!element || !element.addEventListener) return;
+  element.addEventListener(eventName, handler, false);
+}
+
+function setClassVisible(element, visible) {
+  if (!element) return;
+  if (element.classList && element.classList.toggle) {
+    element.classList.toggle("visible", !!visible);
+    return;
+  }
+  var current = element.className || "";
+  var regex = new RegExp("(^|\\s)visible(\\s|$)");
+  if (visible && !regex.test(current)) element.className = current + " visible";
+  if (!visible) element.className = current.replace(regex, " ");
+}
+
+function hasClassVisible(element) {
+  if (!element) return false;
+  if (element.classList && element.classList.contains) return element.classList.contains("visible");
+  return new RegExp("(^|\\s)visible(\\s|$)").test(element.className || "");
+}
+
+function scrollToTop() {
+  try { window.scrollTo(0, 0); }
+  catch (e) { try { window.scroll(0, 0); } catch (e2) {} }
+}
+
+function clearChildren(node) {
+  if (!node) return;
+  while (node.firstChild) node.removeChild(node.firstChild);
+}
+
+/* ---------- FILTER COURSES ---------- */
+function getFilteredCourses() {
+  var results = [];
+  var query = safeLower(safeTrim(state.query));
+  var filter = state.filter;
+  var i, c, haystack;
+
+  for (i = 0; i < courses.length; i++) {
+    c = courses[i];
+    if (!c) continue;
+
+    /* Filter */
+    if (filter === "free" && c.price !== 0) continue;
+    if (filter !== "all" && filter !== "free" && c.cat !== filter) continue;
+
+    /* Search */
+    if (query) {
+      haystack = safeLower(c.title) + " " + safeLower(c.desc) + " " + safeLower(c.cat) + " " + safeLower(c.level);
+      if (haystack.indexOf(query) === -1) continue;
+    }
+
+    results.push(c);
+  }
+  return results;
+}
+
+/* ---------- CREATE CARD ---------- */
+function createCourseCard(course, index) {
+  var card = document.createElement("article");
+  card.className = "course-card glass";
+  try { card.style.animationDelay = (index * 45) + "ms"; } catch (e) {}
+
+  var isFree = course.price === 0;
+
+  /* Ribbon */
+  var ribbon = document.createElement("span");
+  ribbon.className = "ribbon " + (isFree ? "free" : "paid");
+  ribbon.textContent = isFree ? "Free" : "Paid";
+  card.appendChild(ribbon);
+
+  /* Emoji */
+  var emoji = document.createElement("div");
+  emoji.className = "course-emoji";
+  emoji.textContent = course.emoji || "📚";
+  card.appendChild(emoji);
+
+  /* Category */
+  var cat = document.createElement("span");
+  cat.className = "course-cat";
+  cat.textContent = course.cat;
+  card.appendChild(cat);
+
+  /* Title */
+  var title = document.createElement("h3");
+  title.className = "course-title";
+  title.textContent = course.title;
+  card.appendChild(title);
+
+  /* Description */
+  var desc = document.createElement("p");
+  desc.className = "course-desc";
+  desc.textContent = course.desc;
+  card.appendChild(desc);
+
+  /* Meta */
+  var meta = document.createElement("div");
+  meta.className = "course-meta";
+
+  var duration = document.createElement("span");
+  duration.className = "duration";
+  duration.textContent = course.duration + " · " + course.level;
+
+  var price = document.createElement("span");
+  price.className = "course-price" + (isFree ? " free-price" : "");
+  price.textContent = formatPrice(course.price);
+
+  meta.appendChild(duration);
+  meta.appendChild(price);
+  card.appendChild(meta);
+
+  /* Enrol button */
+  var btn = document.createElement("button");
+  btn.className = "enrol" + (isFree ? " free-enrol" : "");
+  btn.type = "button";
+  btn.textContent = isFree ? "Start free course" : "View course";
+  btn.setAttribute("data-id", course.id);
+
+  safeAddEvent(btn, "click", function() {
+    openCourseModal(course.id);
+  });
+  card.appendChild(btn);
+
+  return card;
+}
+
+/* ---------- RENDER ---------- */
+function renderCourses() {
+  try {
+    if (!dom.grid) return;
+
+    var filtered = getFilteredCourses();
+
+    if (dom.count) {
+      dom.count.textContent = filtered.length + " " + (filtered.length === 1 ? "course" : "courses");
+    }
+
+    clearChildren(dom.grid);
+
+    if (!filtered.length) {
+      var empty = document.createElement("div");
+      empty.className = "empty-state";
+      empty.textContent = "No courses matched your search. Try a different keyword or filter.";
+      dom.grid.appendChild(empty);
+      if (dom.loadMore) dom.loadMore.style.display = "none";
+      return;
+    }
+
+    var limit = Math.min(state.visibleCount, filtered.length);
+    var i, card;
+
+    for (i = 0; i < limit; i++) {
+      try {
+        card = createCourseCard(filtered[i], i);
+        if (card) dom.grid.appendChild(card);
+      } catch (e) { continue; }
+    }
+
+    if (dom.loadMore) {
+      if (limit >= filtered.length) {
+        dom.loadMore.style.display = "none";
+      } else {
+        dom.loadMore.style.display = "inline-flex";
+        dom.loadMore.textContent = "Load more (" + (filtered.length - limit) + " remaining)";
+      }
+    }
+  } catch (err) {
+    if (dom.grid) {
+      clearChildren(dom.grid);
+      var fallback = document.createElement("div");
+      fallback.className = "empty-state";
+      fallback.textContent = "Courses could not be loaded. Please refresh the page.";
+      dom.grid.appendChild(fallback);
+    }
+  }
+}
+
+/* ---------- COURSE MODAL ---------- */
+function openCourseModal(courseId) {
+  var course = null;
+  var i;
+  for (i = 0; i < courses.length; i++) {
+    if (courses[i].id === courseId) { course = courses[i]; break; }
+  }
+  if (!course) return;
+
+  state.selectedCourse = course;
+
+  var isFree = course.price === 0;
+
+  if (dom.modalKicker) dom.modalKicker.textContent = course.cat.toUpperCase();
+  if (dom.modalTitle) dom.modalTitle.textContent = course.title;
+  if (dom.modalOverview) dom.modalOverview.textContent = course.desc;
+
+  /* Meta grid */
+  if (dom.modalMeta) {
+    clearChildren(dom.modalMeta);
+    var metas = [
+      { label: "Duration", value: course.duration },
+      { label: "Level", value: course.level },
+      { label: "Price", value: formatPriceLong(course.price) }
+    ];
+    for (i = 0; i < metas.length; i++) {
+      var cell = document.createElement("div");
+      cell.className = "cell";
+      var strong = document.createElement("strong");
+      strong.textContent = metas[i].value;
+      var span = document.createElement("span");
+      span.textContent = metas[i].label;
+      cell.appendChild(strong);
+      cell.appendChild(span);
+      dom.modalMeta.appendChild(cell);
+    }
+  }
+
+  /* Outcomes */
+  if (dom.modalOutcomes) {
+    clearChildren(dom.modalOutcomes);
+    if (course.outcomes && course.outcomes.length) {
+      for (i = 0; i < course.outcomes.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = course.outcomes[i];
+        dom.modalOutcomes.appendChild(li);
+      }
+    }
+  }
+
+  /* Notice */
+  if (dom.modalNotice) {
+    if (isFree) {
+      dom.modalNotice.textContent = "This is one of our free foundation courses. You can enrol at no cost and keep lifetime access to all materials.";
+    } else {
+      dom.modalNotice.textContent = "This is a paid course. Payment is handled securely after enrolment is confirmed. Aurelian Institute never asks for card details by email or message.";
+    }
+  }
+
+  /* Button */
+  if (dom.modalEnrol) {
+    dom.modalEnrol.textContent = isFree ? "Start this course for free" : "Proceed to enrolment";
+  }
+
+  setClassVisible(dom.courseModal, true);
+  try { dom.courseModal.setAttribute("aria-hidden", "false"); } catch (e) {}
+  try { document.body.style.overflow = "hidden"; } catch (e) {}
+}
+
+function closeCourseModal() {
+  setClassVisible(dom.courseModal, false);
+  try { dom.courseModal.setAttribute("aria-hidden", "true"); } catch (e) {}
+  if (!hasClassVisible(dom.enrolModal)) {
+    try { document.body.style.overflow = ""; } catch (e) {}
+  }
+}
+
+/* ---------- ENROL MODAL ---------- */
+function openEnrolModal() {
+  var course = state.selectedCourse;
+  if (!course) return;
+
+  var isFree = course.price === 0;
+
+  if (dom.enrolKicker) {
+    dom.enrolKicker.textContent = isFree ? "Free enrolment" : "Paid enrolment";
+  }
+  if (dom.enrolTitle) {
+    dom.enrolTitle.textContent = "Enrol: " + course.title;
+  }
+
+  closeCourseModal();
+
+  setClassVisible(dom.enrolModal, true);
+  try { dom.enrolModal.setAttribute("aria-hidden", "false"); } catch (e) {}
+  try { document.body.style.overflow = "hidden"; } catch (e) {}
+}
+
+function closeEnrolModal() {
+  setClassVisible(dom.enrolModal, false);
+  try { dom.enrolModal.setAttribute("aria-hidden", "true"); } catch (e) {}
+  if (!hasClassVisible(dom.courseModal)) {
+    try { document.body.style.overflow = ""; } catch (e) {}
+  }
+}
+
+/* ---------- TOAST ---------- */
+function showToast(message) {
+  if (!dom.toast) return;
+  dom.toast.textContent = message || "";
+  if (dom.toast.classList && dom.toast.classList.add) {
+    dom.toast.classList.add("show");
+  }
+  setTimeout(function() {
+    if (dom.toast.classList && dom.toast.classList.remove) {
+      dom.toast.classList.remove("show");
+    }
+  }, 5000);
+}
+
+/* ---------- EVENT LISTENERS ---------- */
+function setupEvents() {
+  /* Search */
+  safeAddEvent(dom.search, "input", function() {
+    state.query = dom.search.value || "";
+    state.visibleCount = state.pageSize;
+    renderCourses();
+  });
+
+  /* Filter chips */
+  if (dom.filterRow) {
+    var chips = dom.filterRow.querySelectorAll(".chip");
+    var i;
+    for (i = 0; i < chips.length; i++) {
+      (function(chip) {
+        safeAddEvent(chip, "click", function() {
+          var f = chip.getAttribute("data-filter") || "all";
+          state.filter = f;
+          state.visibleCount = state.pageSize;
+          var all = dom.filterRow.querySelectorAll(".chip");
+          var j;
+          for (j = 0; j < all.length; j++) {
+            if (all[j].classList && all[j].classList.toggle) {
+              all[j].classList.toggle("active", all[j] === chip);
+            }
+          }
+          renderCourses();
+        });
+      })(chips[i]);
+    }
+  }
+
+  /* Load more */
+  safeAddEvent(dom.loadMore, "click", function() {
+    state.visibleCount += state.pageSize;
+    renderCourses();
+  });
+
+  /* Course modal close */
+  safeAddEvent(dom.modalClose, "click", closeCourseModal);
+  safeAddEvent(dom.modalCancel, "click", closeCourseModal);
+  safeAddEvent(dom.courseModal, "click", function(e) {
+    if (e && e.target === dom.courseModal) closeCourseModal();
+  });
+
+  /* Enrol modal open */
+  safeAddEvent(dom.modalEnrol, "click", function() {
+    openEnrolModal();
+  });
+
+  /* Enrol modal close */
+  safeAddEvent(dom.enrolClose, "click", closeEnrolModal);
+  safeAddEvent(dom.enrolCancel, "click", closeEnrolModal);
+  safeAddEvent(dom.enrolModal, "click", function(e) {
+    if (e && e.target === dom.enrolModal) closeEnrolModal();
+  });
+
+  /* Escape key */
+  safeAddEvent(document, "keydown", function(e) {
+    e = e || window.event;
+    var key = e.key || e.keyCode;
+    if (key === "Escape" || key === "Esc" || key === 27) {
+      if (hasClassVisible(dom.enrolModal)) { closeEnrolModal(); return; }
+      if (hasClassVisible(dom.courseModal)) { closeCourseModal(); }
+    }
+  });
+
+  /* =========================================================
+     ENROL SUBMIT — redirects to course.html
+     ========================================================= */
+  safeAddEvent(dom.enrolForm, "submit", function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+
+    var nameInput = el("enrolName");
+    var emailInput = el("enrolEmail");
+    var name = nameInput ? safeTrim(nameInput.value) : "";
+    var email = emailInput ? safeTrim(emailInput.value) : "";
+
+    if (!name || !email) {
+      showToast("Please enter your name and email address.");
+      return;
+    }
+
+    /* Redirect straight to the Bookkeeping course page */
+    try { window.location.href = "course.html"; }
+    catch (err) { window.location = "course.html"; }
+  });
+
+  /* Menu toggle */
+  safeAddEvent(dom.menuBtn, "click", function() {
+    if (!dom.mobileNav) return;
+    if (dom.mobileNav.classList && dom.mobileNav.classList.toggle) {
+      dom.mobileNav.classList.toggle("open");
+    }
+  });
+
+  /* Mobile nav links close menu */
+  if (dom.mobileNav) {
+    var links = dom.mobileNav.querySelectorAll("a");
+    var k;
+    for (k = 0; k < links.length; k++) {
+      (function(link) {
+        safeAddEvent(link, "click", function() {
+          if (dom.mobileNav.classList && dom.mobileNav.classList.remove) {
+            dom.mobileNav.classList.remove("open");
+          }
+        });
+      })(links[k]);
+    }
+  }
+
+  /* Back to top */
+  safeAddEvent(window, "scroll", function() {
+    if (!dom.toTop) return;
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (y > 500) {
+      if (dom.toTop.classList && dom.toTop.classList.add) dom.toTop.classList.add("show");
+    } else {
+      if (dom.toTop.classList && dom.toTop.classList.remove) dom.toTop.classList.remove("show");
+    }
+  });
+
+  safeAddEvent(dom.toTop, "click", scrollToTop);
+}
+
+/* ---------- INIT ---------- */
+function init() {
+  try {
+    if (dom.year) dom.year.textContent = new Date().getFullYear();
+    setupEvents();
+    renderCourses();
+  } catch (err) {
+    try { renderCourses(); } catch (e2) {}
+  }
+}
+
+if (document.readyState === "loading" && document.addEventListener) {
+  document.addEventListener("DOMContentLoaded", init, false);
+} else {
+  init();
+}
+
+</script>
+</body>
+</html>
